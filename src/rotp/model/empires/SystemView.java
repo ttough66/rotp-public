@@ -404,27 +404,27 @@ public class SystemView implements IMappedObject, Base, Serializable {
     public boolean canSabotageBases()        { return bases() > 0; }
     public boolean canSabotageFactories()    { return factories() > 0; }
     public boolean canInciteRebellion()      { 
-        if (!isColonized())
-            return false;
-        if (colony().inRebellion())
-            return false;
-        if (colony().isCapital())
-            return false;
+        //if (!isColonized())
+        //    return false;
+        //if (colony().inRebellion())
+        //    return false;
+        //if (colony().isCapital())
+        //    return false;
         // we cannot incite a rebellion in an enemy system that the enemy cannot
         // currently colonize (to send transports to stop rebellion). This can
         // occur if, for example, the system is degraded with a random event
-        if (!empire().canColonize(system()))
-            return false;
+        //if (!empire().canColonize(system()))
+        //    return false;
         // special case: we cannot incite rebellion against a final war enemy 
         // if we are rebelling against the New Republic
-        Empire leader = galaxy().council().leader();
-        if (leader != null) {
-            if (owner().viewForEmpire(vEmpire).embassy().finalWar()) {                   
-                if ((vEmpire == leader) || vEmpire.viewForEmpire(leader).embassy().unity())
-                    return false;
-            }
-        }
-        return true;
+        //Empire leader = galaxy().council().leader();
+        //if (leader != null) {
+        //    if (owner().viewForEmpire(vEmpire).embassy().finalWar()) {                   
+        //        if ((vEmpire == leader) || vEmpire.viewForEmpire(leader).embassy().unity())
+        //            return false;
+        //    }
+        //}
+        return false;
     }
 
     public boolean scouted()                 { return (owner() == empire()) || (scoutTime() > 0); }
